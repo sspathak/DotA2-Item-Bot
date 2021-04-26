@@ -12,3 +12,17 @@ Got too many active items? Use the item bot to automatically activate certain it
 
 ## Instructions
  Coming soon!
+
+## How does it work?
+#### item bot constantly searches for an item at a given slot
+* Takes a screenshot few times every second using PyAutoGUI.
+* Reads the pixel values that corresponding to the location of the item slot in the screenshot
+#### If the item is present, it checks if the health is low
+* Compares the pixel values in the screenshot to that of the item by taking the arithmetic sum of the pixel values
+* Estimates HP in a similar way by comparing the value at a pixel corresponding to the health bar. If the health is low, the pixel value will be lower.
+
+#### If the health is low, the bot activates the item
+* Simulates pressing of a key (defined in the code) using PyAutoGUI
+
+
+*NOTE: If the item is on cooldown, the pixel values will not match and the bot will act as if the item is not present*
